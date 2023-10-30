@@ -1,0 +1,23 @@
+{
+  "generator-template-ui5-project": {
+    "projectname": "project1",
+    "namespaceUI5": "com.gustavomartins",
+    "enableFPM": false,
+    "platform": "Static webserver",
+    "viewtype": "XML",
+    "ui5libs": "Content delivery network (SAPUI5)",
+    "newdir": false,
+    "initrepo": true,
+    "namespaceURI": "com/gustavomartins",
+    "uimodules": [
+      "uimodule"
+    ],
+    "opa5Journeys": [
+      "Main"
+    ],
+    "opa5pos": [
+      "Main"
+    ],
+    "setupCompleted": true
+  }
+}

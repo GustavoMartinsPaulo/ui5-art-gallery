@@ -1,0 +1,60 @@
+<mvc:View controllerName="com.gustavomartins.project1.controller.MainView"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns="sap.m"
+    xmlns:f="sap.f"
+	xmlns:fb="sap.ui.comp.filterbar"
+    xmlns:svm="sap.ui.comp.smartvariants"
+    xmlns:core="sap.ui.core">
+    <f:DynamicPage id="listPage" headerExpanded="{/headerExpanded}">
+        <f:title>
+            <f:DynamicPageTitle>
+                <f:heading>
+                    <Title text="Artists" />
+                </f:heading>
+            </f:DynamicPageTitle>
+        </f:title>
+       <f:content>
+        <VBox fitContainer="true">
+            <Table noDataText="{i18n>noArtistFound}" itemPress="onItemPress" growing="true" growingScrollToLoad="true" growingThreshold="50" items="{/artists}" id="artistsTable">
+                <headerToolbar>
+                    <OverflowToolbar>
+                        <content>
+                            <ToolbarSpacer />
+                            <SearchField placeholder="{i18n>searchArtistPlaceholder}" width="auto" search=".onFilterArtist"/>
+                        </content>
+                    </OverflowToolbar>
+                </headerToolbar>
+                <columns>
+                    <Column>
+                        <Text text="{i18n>artistNameText}"/>
+                    </Column>
+                    <Column hAlign="Center">
+                        <Text text="{i18n>artistBirthText}"/>
+                    </Column>
+                    <Column hAlign="End">
+                        <Text text="{i18n>artistDeathText}"/>
+                    </Column>
+                </columns>
+                <items>
+                    <ColumnListItem type="Navigation" vAlign="Middle">
+                        <cells>
+                            <ObjectIdentifier
+                                title="{title}"
+                                text="{id}"/>
+                            <Text
+                                text="{birth_date}" />
+                            <Text
+                            text="{death_date}" />
+                        </cells>
+                    </ColumnListItem>
+                </items>
+            </Table>
+        </VBox>
+       </f:content>
+    </f:DynamicPage>
+    <!-- <Page id="listPage" title="{i18n>title}">
+        <content>
+            
+        </content>
+    </Page> -->
+</mvc:View>

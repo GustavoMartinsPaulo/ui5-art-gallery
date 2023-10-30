@@ -1,0 +1,75 @@
+<mvc:View controllerName="com.gustavomartins.project1.controller.ArtistDetail"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns:m="sap.m"
+    xmlns="sap.uxap">
+    <m:Page
+        id="artistDetailPage"
+        title="{i18n>detailPageTitle}"
+        showNavButton="true"
+        navButtonPress=".onNavBack">
+        <!-- <m:ObjectHeader 
+            id="artistHeader"
+            title="{artist>/data/title}"/> -->
+        <ObjectPageLayout id="ObjectPageLayout"
+            showTitleInHeaderContent="true">
+            <headerTitle>
+                <ObjectPageDynamicHeaderTitle>
+                    <expandedHeading>
+                        <m:Title text="{artist>/data/title}" wrapping="true"/>
+                    </expandedHeading>
+                </ObjectPageDynamicHeaderTitle>
+            </headerTitle>
+            <sections>
+                <ObjectPageSection id="artPieces" title="{i18n>artPieces}">
+                    <subSections>
+                        <ObjectPageSubSection id="artPiecesSubsection">
+                            <m:Table noDataText="{i18n>noArtPiece}." busy="false" id="piecesTable" items="{pieces>/data/}">
+                                <m:columns>
+                                    <m:Column id="column0">
+                                        <m:header>
+                                            <m:Label text="{i18n>pieceTitle}" id="label0"/>
+                                        </m:header>
+                                    </m:Column>
+                                    
+                                    <m:Column id="column1">
+                                        <m:header>
+                                            <m:Label text="{i18n>pieceType}" id="label1"/>
+                                        </m:header>
+                                    </m:Column>
+                                    
+                                    <m:Column id="column2">
+                                        <m:header>
+                                            <m:Label text="{i18n>pieceOrigin}" id="label2"/>
+                                        </m:header>
+                                    </m:Column>
+
+                                    <m:Column id="column3">
+                                        <m:header>
+                                            <m:Label text="{i18n>pieceDisplayDate}" id="label3"/>
+                                        </m:header>
+                                    </m:Column>
+                                </m:columns>
+                                <m:items>
+                                    <m:ColumnListItem>
+                                        <m:cells>
+                                            <m:Text text="{pieces>title}"/>
+                                        </m:cells>
+                                        <m:cells>
+                                            <m:Text text="{pieces>artwork_type_title}"/>
+                                        </m:cells>
+                                        <m:cells>
+                                            <m:Text text="{pieces>place_of_origin}"/>
+                                        </m:cells>
+                                        <m:cells>
+                                            <m:Text text="{pieces>date_display}"/>
+                                        </m:cells>
+                                    </m:ColumnListItem>
+                                </m:items>
+                            </m:Table>
+                        </ObjectPageSubSection >
+                    </subSections>
+                </ObjectPageSection>
+            </sections>
+        </ObjectPageLayout>
+    </m:Page>
+</mvc:View>
