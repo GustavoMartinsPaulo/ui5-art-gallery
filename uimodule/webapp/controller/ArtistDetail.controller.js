@@ -17,7 +17,7 @@ sap.ui.define([
                 var iArtistId = oEvent.getParameter("arguments").artistId;
 
                 var sArtistURL = "https://api.artic.edu/api/v1/agents/" + iArtistId;
-                var sPiecesURL = "https://api.artic.edu/api/v1/artworks/search?query[term][artist_id]="+iArtistId+"&fields=id,title,thumbnail,date_display,place_of_origin,description,artwork_type_title,category_titles,classification_title,classification_titles,image_id";
+                var sPiecesURL = "https://api.artic.edu/api/v1/artworks/search?query[term][artist_id]="+iArtistId+"&fields=id,title,date_display,place_of_origin,artwork_type_title";
                 
                 var oArtistModel = new JSONModel ();
                 this.getView().setModel(oArtistModel,"artist");
@@ -31,7 +31,16 @@ sap.ui.define([
                 this._oPiecesModel = this.getView().getModel("pieces");
                 this._oPiecesModel.loadData(sPiecesURL);
             },
-            onNavBack: function (oEvent){
+            onItemPress: function (oEvent) {
+                var oRouter = this.getOwnerComponent().getRouter();
+                var oItem = oEvent.getParameters().listItem;
+                var oContext = oItem.getBindingContext("pieces");
+
+                oRouter.navTo("RouteArtPieceDetail", {
+                    artPieceId: window.encodeURIComponent(oContext.getProperty("id"))
+                });
+            },
+            onNavBack: function (){
                 var oHistory = History.getInstance();
                 var sPreviousHash = oHistory.getPreviousHash();
 

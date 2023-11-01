@@ -23,7 +23,7 @@
                 <ObjectPageSection id="artPieces" title="{i18n>artPieces}">
                     <subSections>
                         <ObjectPageSubSection id="artPiecesSubsection">
-                            <m:Table noDataText="{i18n>noArtPiece}." busy="false" id="piecesTable" items="{pieces>/data/}">
+                            <m:Table noDataText="{i18n>noArtPiece}." itemPress="onItemPress" busy="false" id="piecesTable" items="{pieces>/data/}">
                                 <m:columns>
                                     <m:Column id="column0">
                                         <m:header>
@@ -50,9 +50,12 @@
                                     </m:Column>
                                 </m:columns>
                                 <m:items>
-                                    <m:ColumnListItem>
+                                    <m:ColumnListItem type="Navigation">
                                         <m:cells>
-                                            <m:Text text="{pieces>title}"/>
+                                            <m:ObjectIdentifier
+                                                title="{pieces>title}"
+                                                text="{pieces>id}"/>
+                                            <!-- <m:Text text="{pieces>title}"/> -->
                                         </m:cells>
                                         <m:cells>
                                             <m:Text text="{pieces>artwork_type_title}"/>

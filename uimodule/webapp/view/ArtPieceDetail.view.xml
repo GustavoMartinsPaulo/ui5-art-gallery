@@ -1,0 +1,70 @@
+<mvc:View controllerName="com.gustavomartins.project1.controller.ArtPieceDetail"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns:layout="sap.ui.layout"
+    xmlns:m="sap.m"
+    xmlns:f="sap.f"
+    xmlns="sap.uxap">
+    <m:Page
+        id="artPieceDetailPage"
+        title="{i18n>artPieceDetailPage}"
+        showNavButton="true"
+        navButtonPress=".onNavBack">
+        <!-- <m:ObjectHeader 
+            id="artistHeader"
+            title="{artist>/data/title}"/> -->
+        <ObjectPageLayout id="ObjectPageLayout"
+            showTitleInHeaderContent="true">
+            <headerTitle>
+                <ObjectPageDynamicHeaderTitle>
+
+                    <expandedHeading>
+                            <m:Title text="{piecesDetail>/data/title}" wrapping="true"/>
+                    </expandedHeading>
+
+                    <snappedHeading>
+                        <m:FlexBox  fitContainer="true" alignItems="Center">
+                            <!-- <m:Avatar src="{personal>/image}" class="sapUiTinyMarginEnd"/> -->
+                            <m:Title text="{piecesDetail>/data/title}" wrapping="true"/>
+                        </m:FlexBox>
+                    </snappedHeading>
+
+                    <expandedContent>
+                        <m:Text text="{piecesDetail>/data/thumbnail/alt_text}"/>
+                    </expandedContent>
+
+                    <snappedContent>
+                        <m:Text text="{piecesDetail>/data/thumbnail/alt_text}"/>
+                    </snappedContent>
+                    
+                    <actions>
+                        <m:Button text="Favorite" press="onPressFavorite"/>
+                    </actions>
+                </ObjectPageDynamicHeaderTitle>
+            </headerTitle>
+            
+            <headerContent>
+                <layout:HorizontalLayout allowWrapping="true">
+                    <layout:VerticalLayout class="sapUiMediumMarginEnd">
+                        <m:ObjectAttribute  title="{i18n>artist}" text="{piecesDetail>/data/artist_title}" />
+                        <m:ObjectAttribute  title="{i18n>pieceOrigin}" text="{piecesDetail>/data/place_of_origin}" />
+                        <m:ObjectAttribute  title="{i18n>pieceDisplayDate}" text="{piecesDetail>/data/date_display}" />
+                        <m:ObjectAttribute  title="{i18n>pieceType}" text="{piecesDetail>/data/artwork_type_title}" />
+                    </layout:VerticalLayout>
+                </layout:HorizontalLayout>
+                <layout:HorizontalLayout allowWrapping="true">
+                    <layout:VerticalLayout class="sapUiMediumMarginEnd">
+                        <m:ObjectAttribute title="{i18n>width}" text="{piecesDetail>/data/dimensions_detail/0/width_cm} CM" />
+                        <m:ObjectAttribute title="{i18n>height}" text="{piecesDetail>/data/dimensions_detail/0/height_cm} CM" />
+                    </layout:VerticalLayout>
+                </layout:HorizontalLayout>
+            </headerContent>
+            <sections>
+                <ObjectPageSection titleUpperCase="false" title="{i18n>pieceImage}">
+                    <ObjectPageSubSection>
+						<m:Image width="100%" id="image-container" visible="false" />
+					</ObjectPageSubSection>                    
+                </ObjectPageSection>
+            </sections>
+        </ObjectPageLayout>
+    </m:Page>
+</mvc:View>

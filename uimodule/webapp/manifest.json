@@ -83,6 +83,13 @@
           "target": [
             "TargetArtistDetail"
           ]
+        },
+        {
+          "name": "RouteArtPieceDetail",
+          "pattern": "artPiece/{artPieceId}",
+          "target": [
+            "TargetArtPieceDetail"
+          ]
         }
       ],
       "targets": {
@@ -99,6 +106,13 @@
           "clearControlAggregation": false,
           "viewId": "ArtistDetail",
           "viewName": "ArtistDetail"
+        },
+        "TargetArtPieceDetail": {
+          "viewType": "XML",
+          "transition": "slide",
+          "clearControlAggregation": false,
+          "viewId": "ArtPieceDetail",
+          "viewName": "ArtPieceDetail"
         }
       }
     },
